@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body {
+	font-size: small;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	line-height: 2.0em;
+}
+
+h1, h2 {
+	color: #007e7e;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+h2 {
+	font-size: 130%;
+}
+
+#guarantee {
+	line-height: 1.9em;	/*设置行高*/
+	font-style: italic;	/*设置斜体*/
+	font-family: Georgia, "Times New Roman", Times, serif; /*指定字体*/
+	color: #444444;	/*设置文字颜色*/
+	/*边框样式：p386-388*/
+	border-color: white;/*创建一个白色的边框*/
+	border-width: 1px;	/*边框宽度为1px*/
+	border-style: dashed;	/*边框为虚线*/
+	border-top-left-radius: 20px;	/*设置左上角为圆角*/
+	border-bottom-right-radius: 20px; /*设置右下角为圆角*/
+	background-color: #a7cece;	/*设置元素背景颜色*/
+	padding: 25px;	/*在内容的四周增加25px的内边距*/
+	padding-left: 80px;	/*增加左内边距*/
+	margin: 30px;	/*在内容四周增加30px的外边距*/
+	margin-right: 250px;	/*增加右外边距*/
+	background-image: url("images/background.gif");	/*设置背景*/
+	/*背景默认会进行平铺，可以使用-repeat来设置：no-repeat repeat-x repeat-y inherit(按父元素的设置来继承)*/
+	background-repeat: no-repeat;	/*设置背景图不重复*/
+	background-position: top left;	/*设置背景位置在左上角*/
+}

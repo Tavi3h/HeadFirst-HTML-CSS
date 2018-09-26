@@ -1,0 +1,122 @@
+在CSS中，字体划分为“字体系列”（font-family），你可以从中指定希望页面中各个元素使用的字体。
+大多数计算机上通常只安装了部分字体，所以选择字体时要特别当心。
+==========================================================================================
+使用font-family属性指定字体。
+body {
+	font-family: Verdana, Geneva, Arial, sans-serif;
+}
+使用font-size属性控制字体大小。
+body {
+	font-size: 14px;
+}
+使用color属性为文本设置颜色。
+body {
+	color: cyan;
+}
+使用font-weight属性影响字体的粗细。
+body {
+	font-weight: bold; /*ligter normal bold bolder*/
+}
+使用text-decoration属性为文本增加更多风格
+body {
+	text-decoration: underline; /*none underline overline line-through*/
+}
+==========================================================================================
+字体系列：
+font-family包含一组共同特征的字体。
+共有5个系列：serif、sans-serif、monospace、cursive、fantasy
+每个字体系列都包含大量字体。
+serif：该字体系列中的字体带有衬线。
+sans-serif：该字体系列中的字体不带有衬线。通常认为在计算机屏幕上该字体比serif字体更容易识读。
+monospace：该字体系列中的字体包含固定宽度。例如字母i和字母m所占宽度是相同的。该字体通常用于显示代码。
+cursive：该字体系列包含看似手写的字体，副标题常用。
+fantasy：该字体系列包含有某种风格的装饰性字体。
+
+通常你指定的font-family包含一个候选字体列表，它们都来自同一个字体系列。
+指定多个字体只需要输入这些字体名，并用逗号分隔。
+字体名的拼写要完全按照规范拼写，大小写字母必须一致。
+最后总是放一个通用的字体系列名，如serif、sans-serif。
+body {
+	font-family: Verdana, Geneva, Arial, sans-serif;
+}
+使用font-family属性，你可以创建一个首选字体列表。
+具体流程，以上述为例：浏览器会先查看用户计算机上是否有Verdana字体，如果有就使用，如果没有就跳到下一个字体Geneva，以此类推...
+
+如果一个字体的字体名包含多个单词。则加上引号。
+body {
+	font-family: "Courier New", Courier;
+}
+==========================================================================================
+可以使用Web Font向用户的浏览器提供一种字体，需要使用CSS的@font-face规则。
+这个规则允许你定义一种字体的名称和位置，然后在你的页面中使用。
+Web字体的工作方式：
+1）自定义的字体储存在服务器上，字体文件包含在web页面中使用这种字体时浏览器所需的一切信息。
+2）浏览器向服务器请求一个引用这些字体的HTML页面。
+3）浏览器获取该HTML页面后再获取这个页面所需的Web字体文件。
+4）浏览器拿到该字体后就可以正确显示HTML中的内容了。
+
+具体步骤：（使用字体Emblema One）
+1、	找到一个字体
+2、	确保有所需要字体的所欲格式：.ttf、.otf、.eot、.svg、.woff
+3、	把字体文件放在Web上。把这个字体放在Web上，这样用户的浏览器就能访问到这些字体。
+	或者也可以利用网上的很多在线字体服务，这些服务也会为你托管这些文件。
+	无论哪种情况，你都需要字体文件的URL：
+	url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.woff"), 
+	url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.ttf");
+	可选字段： local(字体名称)。放置于url()前：src: local(font name), url("font_name.ttf")
+	表示从用户系统中加载字体，失败后才加载webfont。
+4、	得到字体的url版本后，现在需要再css中增加一个@font-face规则。把这个规则放在文件的最上端。
+5、 	在css中使用font-family名
+===========================================================================================
+指定字体大小的几种方式：
+ 单位			类型				描述
+ px		 	Absolute		1个Viewport像素
+ pt		 	Absolute		1pt = 1/72英寸
+ pc		 	Absolute		1pc = 12pt
+ %		 	Relative		相对于父元素的字体尺寸
+ em		 	Relative		相对于父元素的字体尺寸
+ rem		 Relative		(即root em) 相对于html标签的字体尺寸
+ keyword	 Relative		xx-small, x-small, small, medium, large, x-large, xx-large
+ vw		 	Relative		相当于Viewport宽度的1/100
+ vh		 	Relative		相当于Viewport高度的1/100
+ vmin	 	Relative		相当于Viewport高宽中长度相对较小的1/100
+ vmax		 Relative		相当于Viewport高宽中长度相对较大的1/100
+
+当你不设定字体尺寸时，HTML会提供一个默认的尺寸设定。大多数浏览器中<html>和<body>标签中的默认字体尺寸是100%。
+
+100% = 1em = 1rem = 16px = 12pt
+===========================================================================================
+使用font-style: italic;为文本增加斜体风格
+不过并不是所有的字体都支持斜体风格（italic），所以你得到的实际上称为倾斜（oblique）文本。
+倾斜文本也是倾斜的，不过这种字体并不是使用一组专门设计的倾斜字符，而是由浏览器将正常文字倾斜。
+也可以使用font-style属性得到倾斜文本，font-style: oblique;
+以上两种风格有时看起来一样，有时不一样。却决于选择的字体和浏览器。
+通常使用斜体（italic）。
+===========================================================================================
+指定颜色的方法：
+1、按照名字指定颜色: Aqua Black Gray Lime ...
+2、按红绿蓝指定颜色 : rgb(80%, 40%, 0%); rgb(204, 102, 0);
+3、使用一个十六进制码指定颜色 : #cc6600 十六进制码总是以#开头，每两位代表一种颜色，顺序为rgb。
+
+十六进制（hexadecimal）：0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F，字母不区分大小写。
+
+#000000 ~ #FFFFFF
+
+cc = 12+12*16=204, 66 = 6+6*16=102, 00 = 0+0*16=0;
+即#cc6600 = rgb(204, 102, 0)
+
+缩写：如果每一组分量中两位数字相同，则可以简写。
+#cb0 = #ccbb00
+#1ea = #11eeaa
+
+选取颜色原则：
+如果没有特殊需求，则背景和文本之间的对比度尽量大。
+===========================================================================================
+文本装饰：text-decoration
+line-through：文本上有一个从文本中间穿过的横线
+underline：下划线
+overline：上划线
+none：用于去掉继承而来的文本装饰。
+一次可以设置多个装饰：
+text-decoration: line-through underline overline;
+text-decoration: line-through none underline overline; 这里none会取消line-through，而underline overline依旧起作用。

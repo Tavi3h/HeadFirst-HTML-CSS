@@ -1,0 +1,115 @@
+盒模型是CSS看待元素的一种方式。CSS将每个元素看作由一个盒子表示。
+
+每个盒子由一个内容区以及可选的内边距、边框和外边框组成。
+内容区（content area）：包含元素的内容。
+内容区被可选的透明内边框（padding）包围。
+内边距周围可能放置一个可选的边框（border）。
+最后，有一个可选的透明外边距（margin）包围所有的部分。
+
+
+内容区：	包含元素的内容。它的大小通常正好能包含全部内容。在内容区中，内容与盒子边缘之间没有空间。
+内边距：	是有盒子在内容区周围可能有一层内边距。内边距是可选的，所以不一定有。
+		不过通过使用内边距，可以在内容与盒子边框之间创建一些看得到的空间。
+		内边距是透明的，没有颜色，也没有自己的装饰。
+		使用css可以控制整个内容区周围内边距的宽度，也可以控制任意一边的内边距的宽度。
+边框：	元素周围可以有一个可选的边框。这个边框会包围内边距。
+		因为它是围绕内容的一条线，这就从视觉上使内容与同一页面上的其它元素隔开。
+		边框可以有各种不同的宽度、颜色和样式。
+外边距：	外边距也是可选的，包围边框。利用外边距，也可以在同一个页面上的不同元素之间增加空间。
+		如果两个盒子紧挨着，外边距就相当于它们之间的空间。类似与内边距，外边距也是透明的。本身没有颜色或装饰。
+
+具体可选操作：
+1、盒子：
+1）	可以指定盒子的样式，包括内边距、边框和外边距
+2）	或者只有内边距和一个边框。
+3）	或者只有边框。
+4）	或者有外边距，但没有边框和内边距。
+5）	...
+2、边框：
+1）	可以有实线边框，边框可以是粗线或细线。
+2）	或者根本没有边框。
+3）	或者可以从8种不同样式的边框中选择。
+4）	或者对边框指定颜色。
+5）	或者甚至对边框使用圆角。
+6）	...
+3、内边距：
+1）	利用CSS，可以控制内容区任意一边的内边距。
+4、外边距：
+	利用CSS，可以实现与内边距同样的控制。
+5、内容区：
+1）	可以采用多种方法控制宽度和高度。		
+
+盒子总宽度：左外边距 + 边框 + 左内边距 + 内容区宽度 + 右外边距 + 边框 + 右内边距
+一个元素的默认宽度为auto，这说明它会延伸占满浏览器的整个宽度。
+=======================================================================
+简写：
+当指定padiing、margin四个方向的大小时，可以按照上右下左的顺序一次指定。
+例：
+padding-top: 0px;
+padding-right:20px;
+padding-bottom:30px;
+padding-left:10px;
+可以写成：padding: 0px 20px 30px 10px;
+如果四个方向大小相同，则可以写成：padding: 20px;
+如果上下边距以及左右边距是一样的，
+margin-top: 0px;
+margin-right: 20px;
+margin-bottom: 0px;
+margin-left: 20px;
+则可以简写为：margin : 0px 20px;
+
+border-width: thin;
+border-style: solid;
+border-color: #007e7e;
+可以简写为：border: thin solid #007e7e; /*顺序无所谓*/
+
+background-color: white;
+background-image: url("image/cocktail.gif");
+background-repeat: repeat-x;
+可以简写为： background: white url("image/cocktail.gif") repeat-x;
+
+font的所有属性font-family、font-style、font-weight、font-size、font-variant、line-height。
+			   {			    可选 				 }	  {必须}	    {可选} {必须，需用逗号隔开}
+简写形式：font: font-style font-variant font-weight font-size/line-height font-family
+当要使用line-height时，需用/与font-size分开。
+font-size: small;
+font-style:italic;
+font-variant: small-caps;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+line-height: 1.6em;
+简写为：font: italic small-caps small/1.6em Verdana, Helvetica, Arial, sans-serif;
+
+=======================================================================
+id属性：
+与class类似，只要增加属性“id”，并选择一个唯一的id名。
+每个元素只能有一个id。id名中不允许出现空格或其他特殊字符。
+与class不同，页面中只能有一个元素的id为“footer”
+<p id="footer">Please steal this page, it isn't copyrighted in any way</p>
+
+为元素指定id与将元素增加到一个类很类似。唯一的区别是，这个属性名为id，而不是class。
+一个元素不能有多个id，另外页面上不允许多个元素都有相同的id。
+
+不要用class来“模拟”以个唯一的id。
+
+在CSS中使用id，与在CSS中使用class类似。
+
+假如有一个名为specials的类和一个名为footer的id
+
+/*选择specials类中的段落*/
+p.specials {
+	color: red;
+}
+/*选择属于specials类中的所有元素*/
+.specials {
+	color: red;
+}
+/*选择id名“footer”的任意元素*/
+#footer {
+	color: red;
+}
+/*选择id为“footer”的<p>元素*/
+p#footer {
+	color: red;
+}
+
+id选择器只与页面中的一个元素匹配。

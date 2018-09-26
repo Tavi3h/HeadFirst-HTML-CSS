@@ -1,0 +1,37 @@
+body {
+	font-family: sans-serif;
+}
+
+p {
+	/*改变段落内文字颜色*/
+	color: maroon;
+}
+/*指定greentea类中的p元素*/
+p.greentea {
+	color: green;
+}
+
+/*如果去掉“.”则表示样式会应用到该类中的所有元素*/
+.raspberry {
+	color: cyan;
+}
+
+/*对标题增加样式，规则相同时可以合并*/
+h1, h2 {
+	/*设定字体及颜色*/
+	/*子元素的样式覆盖了父元素的样式*/
+	font-family: ubuntu mono;
+	color: gray;
+}
+
+h1 {
+	/*只对增加下边框*/
+	border-bottom: 1px solid black;
+}
+
+em {
+	/*子元素的样式覆盖了父元素的样式*/
+	font-family: comic sans ms;
+}
+
+/*对于CSS而言，总会使用最特定的哪个规则，总能使用一个更特定的选择器覆盖从父类选择器继承的属性*/

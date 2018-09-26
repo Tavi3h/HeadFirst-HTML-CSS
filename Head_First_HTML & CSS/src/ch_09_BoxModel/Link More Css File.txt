@@ -1,0 +1,48 @@
+一个html文件可以使用多个样式表。使用多个<link>元素。顺序很重要，一个样式表会覆盖在它上面链接的样式表中的样式。
+样式表从上至下排列，最下面的样式表最优先。
+
+有时候会有一个样式表作为页面的基础样式。
+在修改一个样式时，并不是修改这个样式表。
+而是链接这个样式表，然后在他下面提供你自己的样式表，
+并在其内指定你想修改的样式。
+======================================================================================================
+<link>元素的media属性：在<link>元素中加入这个属性，使这个CSS只适用于指定设备。
+例子：
+<link href = "lounge-mobile.css" rel="stylesheet" media="screen and (max-device-width: 480px)">
+其中media="screen amd (max-device-width: 480px)"意为有屏幕的且屏幕宽度不超过480px的设备。
+<link href = "lounge-print.css" rel="stylesheet" media="print">
+media意为这个css只有当媒体类型为“print”时才会使用，这说明我们要通过打印机查看页面。
+
+查询中还有很多属性可以使用，如min-device-width、max-device-width，
+max-width、min-width（它们表示浏览器窗口本身的最大和最小宽度）
+，以及显示方向orientation，可以是landscape或portrait等等。
+可以根据需要为html增加多个<link>元素，涵盖你要支持的所有设备。
+
+在也可以直接在CSS中增加媒体查询：使用@media规则。
+采用这种方式，@media规则中只包含特定于一种媒体类型的CSS规则。
+在CSS文件中，要把对所有媒体类型都通用的规则放在@media规则下面，
+这样就不会不必要的重复使用规则了。（IE8之前不支持媒体查询）
+
+如果CSS文件过于庞大，建议使用<link>元素来指定不同的样式表。
+
+@media screen and (min-device-width: 481px) {
+	#guarantee {
+		margin-right: 250px;
+	}
+}
+
+@media screen and (max-device-width: 480px) {
+	#guarantee {
+		margin-right: 30px;
+	}
+}
+
+@media print {
+	body {
+		font-family: Times, "Times New Roman", serif;
+	}
+}
+
+p.special {
+	color: red;
+}

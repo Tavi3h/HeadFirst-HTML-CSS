@@ -1,0 +1,87 @@
+body {
+	font-size: small;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	line-height: 1.6em;
+}
+
+h1, h2 {
+	color: #007e7e;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+h2 {
+	font-size: 130%;
+}
+
+#guarantee {
+	line-height: 1.9em;
+	font-style: italic;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #444444;
+	border-color: white;
+	border-width: 1px;
+	border-style: dashed;
+	background-color: #a7cece;
+	padding: 25px;
+	padding-left: 80px;
+	margin: 30px;
+	margin-right: 250px;
+	background-image: url("images/background.gif");
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+#elixirs {
+	border-width: thin;
+	border-style: solid;
+	border-color: #007e7e;
+	/*当调整浏览器窗口大小时，其它段落会自行调整大小，但<div>的宽度永远是设定的宽度。*/
+	width: 200px; /*设定元素内容区的宽度*/
+	padding-bottom: 20px;
+	padding-right: 25px;
+	padding-left: 25px;
+	margin-left: 20px;
+	/*块内所有的元素都会居中对齐，不仅限于text*/
+	/*对<div>块元素设置了这个属性后，它的所有内联内容都会居中*/
+	/*尽管它的名字是text-align，但实际上适用于对任何类型的内联元素对齐*/
+	/*text-align属性只能在块元素上设置，在内联元素上设置不起作用*/
+	text-align: center;
+	background-image: url("images/cocktail.gif");
+	background-repeat: repeat-x;
+	/*直接使用一个数，而不是相对度量表示elixirs<div>中的各个元素行高是其自己字体大小的1倍*/
+	/*而不是elixirs<div>字体大小的1倍，elixirs<div>字体大小是从<body>继承来的（small）*/
+	line-height: 1;
+	float: right;
+}
+
+#elixirs h2 {
+	color: black;
+}
+
+#elixirs h3 {
+	color: #d12c47;
+}
+
+.cd {
+	font-style: italic;
+}
+
+.artist {
+	font-weight: bold;
+}
+
+#elixirs a:link {
+	color: #007e7e;
+}
+
+#elixirs a:visited {
+	color: #333333;
+}
+
+#elixirs a:hover {
+	color: #0d5353;
+	background: #f88396;
+}
